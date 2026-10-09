@@ -18,7 +18,19 @@ public class DamnBigNumbers {
      * @return DamnBigNumber
      */
     public static DamnBigNumber add(DamnBigNumber a, DamnBigNumber b) {
-        return a;
+        // TODO - what if one is shorter than the other?
+        // assume same length for now...
+
+        String s = "";
+
+        for (int i = a.getNumStr().length()-1; i >= 0; i--) {
+            int digitResult = a.getNumStr().charAt(i)-48 + b.getNumStr().charAt(i)-48;
+            // TODO - "1x"?
+            s = String.format("%d", digitResult) + s;
+        }
+        DamnBigNumber c = new DamnBigNumber(s);
+
+        return c;
     }
 
     /**
