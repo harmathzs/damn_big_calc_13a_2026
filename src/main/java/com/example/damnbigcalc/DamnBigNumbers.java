@@ -18,8 +18,15 @@ public class DamnBigNumbers {
      * @return DamnBigNumber
      */
     public static DamnBigNumber add(DamnBigNumber a, DamnBigNumber b) {
-        // TODO - what if one is shorter than the other?
-        // assume same length for now...
+        if (a.getNumStr().length() < b.getNumStr().length()) {
+            for (int i=0; i< b.getNumStr().length()-a.getNumStr().length(); i++) {
+                a.setNumStr("0" + a.getNumStr());
+            }
+        } else if (a.getNumStr().length() > b.getNumStr().length()) {
+            for (int i=0; i< a.getNumStr().length()-b.getNumStr().length(); i++) {
+                b.setNumStr("0" + b.getNumStr());
+            }
+        }
 
         String s = "";
         int carry = 0;
