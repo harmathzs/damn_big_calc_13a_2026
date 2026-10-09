@@ -2,6 +2,7 @@ package com.example.damnbigcalc;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -44,5 +45,14 @@ public class HelloController {
 
                 break;
         }
+    }
+
+    public void handleDigitClick(ActionEvent actionEvent) {
+        // System.out.println(actionEvent);
+        Button source = (Button) actionEvent.getSource();
+        String value = source.getText();
+        int digit = Integer.parseInt(value);
+
+        display.setText(display.getText()+value);
     }
 }
